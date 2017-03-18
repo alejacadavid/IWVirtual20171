@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import co.edu.udea.iw.exception.MyException;
 
 /**
- * Emcargada de realizar conexiones a la base de datos
+ * Encargada de realizar conexiones a la base de datos
  * @author Maria Alejandra Cadavid Osorio - mariaa.cadavid@udea.edu.co
  * @since Java 1.7
  * @version 1.0
@@ -15,10 +15,15 @@ import co.edu.udea.iw.exception.MyException;
  */
 public class DataSource {
 
+	/**
+	 * Obtiene la conexión a la base de datos
+	 * @return Conexión a la base de datos
+	 * @throws MyException ocurre cuando hay un problema con la conexión a la BD
+	 */
 	public Connection getConnection() throws MyException {
 		Connection con = null;
 		
-		String url = "jdbc:mysql://localhost:3306/clase";
+		String url = "jdbc:mysql://localhost:3306/clase"; 
 		String usuario = "admin";
 		String pws = "admin";
 		String consulta = "SELECT * FROM Ciudades";
@@ -39,7 +44,6 @@ public class DataSource {
 		}catch(SQLException e){
 			throw new MyException("Ha ocurrido un error estableciendo conexión con la base de datos", e);
 		}
-		
 		return con;
 	}
 }
